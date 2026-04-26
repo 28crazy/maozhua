@@ -23,6 +23,7 @@
         <module>api</module>
         <module>infra</module>
         <module>app</module>
+        <module>client</module>
     </modules>
 
     <properties>
@@ -54,6 +55,11 @@
             <dependency>
                 <groupId>com.maozhua.mz</groupId>
                 <artifactId>app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.maozhua.mz</groupId>
+                <artifactId>client</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
