@@ -1,1 +1,6 @@
+com/maozhua/mz/app/view/request/DailyRequest.class
+com/maozhua/mz/app/view/DailyView.class
+com/maozhua/mz/app/base/ErrorConst.class
+com/maozhua/mz/app/base/BaseResponse.class
 com/maozhua/mz/AppApplication.class
+com/maozhua/mz/app/controller/DailyController.class

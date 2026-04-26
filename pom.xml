@@ -22,7 +22,6 @@
         <module>domain</module>
         <module>api</module>
         <module>infra</module>
-        <module>app</module>
         <module>client</module>
     </modules>
 
@@ -50,11 +49,6 @@
             <dependency>
                 <groupId>com.maozhua.mz</groupId>
                 <artifactId>infra</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.maozhua.mz</groupId>
-                <artifactId>app</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

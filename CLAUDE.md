@@ -8,7 +8,7 @@ A WeChat mini-program backend (猫抓/maozhua) — multi-module Spring Boot 2.7.
 
 ## Architecture (5 Modules)
 
-The dependency chain is: `common` → `domain` → `infra` + `api` → `app`
+The dependency chain is: `common` → `domain` → `infra` + `api` → `client`
 
 | Module | Purpose | Key Dependencies |
 |--------|---------|-----------------|
@@ -16,10 +16,10 @@ The dependency chain is: `common` → `domain` → `infra` + `api` → `app`
 | `domain` | Domain models (DailyModel) & repository interfaces | common |
 | `api` | Service interfaces (DailyService), DTOs (DailyDto) | common, domain, infra |
 | `infra` | Persistence adapters (DailyRepositoryImpl), MySQL via JDBC | domain, common |
-| `app` | Composition root: entry point, controllers, views, response types | api, infra, common |
+| `client` | Composition root: entry point, controllers, views, response types | api, infra, common, domain |
 
-- **Entry point**: `AppApplication.main()` in `app` module, scans `com.maozhua.mz` package
-- **Controller layer**: `app` module holds `@RestController` classes, request/response views
+- **Entry point**: `AppApplication.main()` in `client` module, scans `com.maozhua.mz` package
+- **Controller layer**: `client` module holds `@RestController` classes, request/response views
 - **Service layer**: Interfaces in `api`, implementations in `api/service/impl`
 - **Repository layer**: Interfaces in `domain/repository`, implementations in `infra/repository`
 - **No JPA** — uses `spring-boot-starter-jdbc` + MySQL connector directly
@@ -27,7 +27,7 @@ The dependency chain is: `common` → `domain` → `infra` + `api` → `app`
 
 ## Current State
 
-Early-stage scaffold. Most service/repo methods return null stubs. `DailyRequest` references a `DailyInfo` class that does not yet exist.
+Early-stage scaffold. Most service/repo methods return null stubs.
 
 ## Build Commands
 
@@ -48,7 +48,7 @@ mvn -s settings.xml -pl common test
 mvn -s settings.xml -pl common test -Dtest=CommonApplicationTests
 
 # Run app locally
-mvn -s settings.xml -pl app spring-boot:run
+mvn -s settings.xml -pl client spring-boot:run
 
 # Docker build (from repo root)
 docker build -t maozhua .
@@ -64,4 +64,4 @@ Uses Tencent Maven mirror (`settings.xml`). Maven wrapper is not included.
 - **Response wrapper**: All API responses use `BaseResponse<T>` with `ErrorConst` codes (`SUCCESS(200)`, `ERROR(500)`)
 - **Pagination**: `PageInfo<T>` with `of(pageNo, pageSize, total, list)` factory and `defaultPageInfo()` defaults
 - **Auto-wired**: Field injection with `@Autowired`
-- **View/DTO separation**: `app/view` (presentation layer) vs `api/dto` (service DTOs) vs `domain` (domain models)
+- **View/DTO separation**: `client/app/view` (presentation layer) vs `api/dto` (service DTOs) vs `domain` (domain models)
