@@ -9,7 +9,6 @@ COPY common ./common
 COPY domain ./domain
 COPY api ./api
 COPY infra ./infra
-COPY app ./app
 COPY client ./client
 
 RUN mvn -s /client/settings.xml -B -q -f /client/pom.xml clean package -DskipTests
