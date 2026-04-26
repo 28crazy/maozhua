@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Apr 26 14:29:26 CST 2026
+https\://mirrors.tencent.com/nexus/repository/maven-public/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:2.7.18 from/to tencent (https\://mirrors.tencent.com/nexus/repository/maven-public/)\: mirrors.tencent.com\: nodename nor servname provided, or not known
+@default-tencent-https\://mirrors.tencent.com/nexus/repository/maven-public/.lastUpdated=1777184966485

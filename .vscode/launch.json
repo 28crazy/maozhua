@@ -1,12 +1,13 @@
 {
   "version": "0.2.0",
   "configurations": [
+    
     {
       "type": "java",
-      "name": "maozhua: AppApplication (local)",
+      "name": "maozhua: Application (local)",
       "request": "launch",
-      "mainClass": "com.maozhua.mz.app.AppApplication",
-      "projectName": "app",
+      "mainClass": "com.maozhua.mz.client.Application",
+      "projectName": "client",
       "args": "--spring.profiles.active=local",
       "console": "integratedTerminal"
     }
