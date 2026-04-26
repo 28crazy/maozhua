@@ -1,4 +1,4 @@
-package com.maozhua.mz.client.config.mysqlConfig;
+package com.maozhua.mz.infra.mysqlConfig;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

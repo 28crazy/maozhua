@@ -1,7 +1,11 @@
-/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/config/mysqlConfig/MyBatisMysqlConfig.java
+/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/controller/UserInfoController.java
+/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/request/UserInfoUpdateRequest.java
+/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/request/UserInfoRequest.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/DailyView.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/base/BaseResponse.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/controller/DailyController.java
+/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/request/UserInfoCreateRequest.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/base/ErrorConst.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/AppApplication.java
+/Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/UserInfoView.java
 /Users/tony/wechat_pro/maozhua/client/src/main/java/com/maozhua/mz/client/view/request/DailyRequest.java

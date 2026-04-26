@@ -1,6 +1,10 @@
+com/maozhua/mz/client/view/request/UserInfoRequest.class
 com/maozhua/mz/client/view/DailyView.class
+com/maozhua/mz/client/view/request/UserInfoCreateRequest.class
+com/maozhua/mz/client/view/UserInfoView.class
 com/maozhua/mz/client/base/ErrorConst.class
-com/maozhua/mz/client/config/mysqlConfig/MyBatisMysqlConfig.class
+com/maozhua/mz/client/controller/UserInfoController.class
+com/maozhua/mz/client/view/request/UserInfoUpdateRequest.class
 com/maozhua/mz/client/base/BaseResponse.class
 com/maozhua/mz/AppApplication.class
 com/maozhua/mz/client/controller/DailyController.class
