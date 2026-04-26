@@ -2,6 +2,7 @@ package com.maozhua.mz.client.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +13,8 @@ import com.maozhua.mz.api.service.UserInfoService;
 import com.maozhua.mz.client.base.BaseResponse;
 import com.maozhua.mz.client.base.ErrorConst;
 import com.maozhua.mz.client.view.UserInfoView;
-import com.maozhua.mz.client.view.request.UserInfoCreateRequest;
-import com.maozhua.mz.client.view.request.UserInfoRequest;
-import com.maozhua.mz.client.view.request.UserInfoUpdateRequest;
+import com.maozhua.mz.client.view.request.UserInfoCreateOrUpdateRequest;
+import com.maozhua.mz.infra.RedisConfig.RedisHandler;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,30 +26,23 @@ public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
 
-    @PostMapping("/get")
-    public BaseResponse<UserInfoView> getByOpenid(@RequestBody UserInfoRequest request) {
-        log.info("UserInfoController.getByOpenid request: {}", request);
-        if (request == null || request.getOpenid() == null || request.getOpenid().trim().isEmpty()) {
-            return BaseResponse.error(ErrorConst.ERROR);
-        }
+    @Autowired
+    private RedisHandler redisHandler;
 
-        UserInfoDto dto = userInfoService.getByOpenid(request.getOpenid().trim());
-        if (dto == null) {
-            return BaseResponse.success(null);
-        }
 
-        UserInfoView view = new UserInfoView();
-        BeanUtils.copyProperties(dto, view);
-        return BaseResponse.success(view);
+    @GetMapping("/get")
+    public String get() {
+        String key = "user:info:get";
+        redisHandler.setString(key, "test_value_maozhua");
+        return redisHandler.getString(key);
     }
 
     @PostMapping("/create")
-    public BaseResponse<UserInfoView> create(@RequestBody UserInfoCreateRequest request) {
+    public BaseResponse<UserInfoView> create(@RequestBody UserInfoCreateOrUpdateRequest request) {
         log.info("UserInfoController.create request: {}", request);
         if (request == null || request.getOpenid() == null || request.getOpenid().trim().isEmpty()) {
             return BaseResponse.error(ErrorConst.ERROR);
         }
-
         UserInfoDto dtoRequest = new UserInfoDto();
         BeanUtils.copyProperties(request, dtoRequest);
         dtoRequest.setOpenid(request.getOpenid().trim());
@@ -65,7 +58,7 @@ public class UserInfoController {
     }
 
     @PostMapping("/update")
-    public BaseResponse<UserInfoView> update(@RequestBody UserInfoUpdateRequest request) {
+    public BaseResponse<UserInfoView> update(@RequestBody UserInfoCreateOrUpdateRequest request) {
         log.info("UserInfoController.update request: {}", request);
         if (request == null || request.getOpenid() == null || request.getOpenid().trim().isEmpty()) {
             return BaseResponse.error(ErrorConst.ERROR);
