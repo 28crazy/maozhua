@@ -32,6 +32,7 @@ public class UserInfoController {
 
     @GetMapping("/get")
     public String get() {
+        log.info("UserInfoController.get");
         String key = "user:info:get";
         redisHandler.setString(key, "test_value_maozhua");
         return redisHandler.getString(key);
